@@ -17,4 +17,13 @@ describe("QueryProcessor", () => {
             "writer in the English language and the world's pre-eminent dramatist."
           ));
     });
+
+    // TODO: You should update the test below after you add your andrew id
+    test('should return my andrew id', () => {
+        const query = "what's your Andrew ID?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "YOUR ANDREW ID SHOULD BE HERE"
+          ));
+    });
 });

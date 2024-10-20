@@ -7,5 +7,9 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  if (query.toLowerCase().includes("andrew id")) {
+    //TODO add your Andrew ID below
+    return ( "YOUR ANDREW ID SHOULD BE HERE" );
+  }
   return "";
 }

@@ -19,11 +19,18 @@ export default function QueryProcessor(query: string): string {
     return ( "zrh-313" );
   }
 
-  if (query.toLowerCase().includes("what is 12 plus 22?")) {
-    //TODO add your Andrew ID below
-    //TODO update the corresponding test case in __tests__
-    return ( "34" );
+  const pattern = /^what is \d+ plus \d+\?$/i;
+  if (pattern.test(query)) {
+    const match = query.match(/(\d+)\s*plus\s*(\d+)/i);
+    
+    if (match) {
+        const num1 = parseInt(match[1], 10); // First number
+        const num2 = parseInt(match[2], 10); // Second number
+        const sum = num1 + num2; // Calculate the sum
+        return sum.toString(); // Return the result as a string
+    }
   }
+
 
   if (query.toLowerCase().includes("which of the following numbers is the largest:")) {
     const numbers = query.match(/-?\d+(\.\d+)?/g); // Matches integers and decimals

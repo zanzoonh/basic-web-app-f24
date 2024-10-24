@@ -19,7 +19,7 @@ export default function QueryProcessor(query: string): string {
     return ( "zrh-313" );
   }
 
-  const pattern = /^what is \d+ plus \d+\?$/i;
+  const pattern = /^What is \d+ plus \d+\?$/i;
   if (pattern.test(query)) {
     const match = query.match(/(\d+)\s*plus\s*(\d+)/i);
     

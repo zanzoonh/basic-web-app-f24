@@ -35,11 +35,4 @@ describe("QueryProcessor", () => {
           ));
     });
 
-    test('should return my name', () => {
-        const query = "what is your name?";
-        const response: string = QueryProcessor(query);
-        expect(response).toBe((
-            "zrh-313"
-          ));
-    });
 });

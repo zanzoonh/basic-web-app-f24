@@ -19,7 +19,7 @@ export default function QueryProcessor(query: string): string {
     return ( "zrh-313" );
   }
 
-  if (query.toLowerCase().includes("What is 12 plus 22?")) {
+  if (query.toLowerCase().includes("what is 12 plus 22?")) {
     //TODO add your Andrew ID below
     //TODO update the corresponding test case in __tests__
     return ( "34" );

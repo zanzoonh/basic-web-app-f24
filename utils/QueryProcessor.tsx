@@ -31,10 +31,11 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("what is") && query.toLowerCase().includes("multiplied by?") ) {
-    const numbers = [] || query.match(/\d+/g)?.map(Number);
+  if (query.toLowerCase().includes("what is") && query.toLowerCase().includes("multiplied by") ) {
+    const numbers = query.match(/\d+/g)?.map(Number) || [];
     if (numbers.length === 2) {
-    return ( (numbers[0] * numbers[1]).toString() );
+      const prod = (numbers[0] * numbers[1])
+    return ( prod.toString() );
     }
     return "";
   }
@@ -56,6 +57,7 @@ export default function QueryProcessor(query: string): string {
         const results = parsedNumbers.filter(num => isPerfectSixthPower(num)); // Filter numbers
         return results.toString(); // Return array of numbers that are both square and cube
     }
+    return "";
   }
   return "";
 }

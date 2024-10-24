@@ -31,6 +31,13 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("what is") && query.toLowerCase().includes("multiplied by?") ) {
+    const numbers = [] || query.match(/\d+/g)?.map(Number);
+    if (numbers.length === 2) {
+    return ( (numbers[0] * numbers[1]).toString() );
+    }
+    return "";
+  }
 
   if (query.toLowerCase().includes("which of the following numbers is the largest:")) {
     const numbers = query.match(/-?\d+(\.\d+)?/g); // Matches integers and decimals
@@ -41,5 +48,19 @@ export default function QueryProcessor(query: string): string {
     return maxNumber.toString();
   }
 
+  if (query.toLowerCase().includes("which of the following numbers is both a square and a cube:")) {
+    const numbers = query.match(/(\d+)/g); // Matches one or more digits globally
+
+    if (numbers) {
+        const parsedNumbers = numbers.map(Number); // Convert strings to numbers
+        const results = parsedNumbers.filter(num => isPerfectSixthPower(num)); // Filter numbers
+        return results.toString(); // Return array of numbers that are both square and cube
+    }
+  }
   return "";
+}
+
+function isPerfectSixthPower(num) {
+  const root = Math.round(Math.pow(num, 1/6));
+  return Math.pow(root, 6) === num; // Check if the number is a perfect sixth power
 }

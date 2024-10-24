@@ -25,18 +25,14 @@ export default function QueryProcessor(query: string): string {
     return ( "34" );
   }
 
-  if (query.toLowerCase().includes("what is 37 plus 23?")) {
-    //TODO add your Andrew ID below
-    //TODO update the corresponding test case in __tests__
-    return ( "60" );
-  }
+  if (query.toLowerCase().includes("which of the following numbers is the largest:")) {
+    const numbers = query.match(/-?\d+(\.\d+)?/g); // Matches integers and decimals
+    const parsedNumbers = numbers ? numbers.map(Number) : []; // Convert strings to numbers
 
-  if (query.toLowerCase().includes("which of the following numbers is the largest: 37, 96, 79?")) {
-    //TODO add your Andrew ID below
-    //TODO update the corresponding test case in __tests__
-    return ( "96" );
+    // Calculate the maximum number
+    const maxNumber = Math.max(...parsedNumbers);
+    return maxNumber.toString();
   }
-  
 
   return "";
 }
